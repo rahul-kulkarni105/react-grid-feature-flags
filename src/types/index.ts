@@ -83,3 +83,14 @@ export interface EditModalProps {
   rowData: FormData;
   onSave: (updatedRow: FormData) => void;
 }
+
+export interface ConfirmationDialogProps {
+  open: boolean;
+  title: string;
+  message: string;
+  onConfirm: () => void;
+  onCancel: () => void;
+  confirmText?: string;
+  cancelText?: string;
+  severity?: 'warning' | 'error' | 'info';
+}

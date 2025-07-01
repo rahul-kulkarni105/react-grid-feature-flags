@@ -21,6 +21,15 @@ export const useDataGrid = (
   const queryClient = useQueryClient();
   const [newRows, setNewRows] = useState<RowData[]>([]);
   const [rowModesModel, setRowModesModel] = useState<GridRowModesModel>({});
+  const [deleteConfirmation, setDeleteConfirmation] = useState<{
+    open: boolean;
+    rowId: GridRowId | null;
+    rowName: string;
+  }>({
+    open: false,
+    rowId: null,
+    rowName: '',
+  });
 
   const {
     data = [],
@@ -99,7 +108,14 @@ export const useDataGrid = (
   };
 
   const handleDeleteClick = (id: GridRowId) => () => {
-    deleteMutation.mutate(Number(id));
+    const row = rows.find(row => row.id === id);
+    if (row) {
+      setDeleteConfirmation({
+        open: true,
+        rowId: id,
+        rowName: row.name,
+      });
+    }
   };
 
   const handleCancelClick = (id: GridRowId) => () => {
@@ -144,6 +160,17 @@ export const useDataGrid = (
       });
   };
 
+  const handleConfirmDelete = () => {
+    if (deleteConfirmation.rowId !== null) {
+      deleteMutation.mutate(Number(deleteConfirmation.rowId));
+      setDeleteConfirmation({ open: false, rowId: null, rowName: '' });
+    }
+  };
+
+  const handleCancelDelete = () => {
+    setDeleteConfirmation({ open: false, rowId: null, rowName: '' });
+  };
+
   const isLoading_mutations =
     updateMutation.isPending ||
     addMutation.isPending ||
@@ -156,6 +183,7 @@ export const useDataGrid = (
     error,
     rowModesModel,
     isLoading_mutations,
+    deleteConfirmation,
     // Handlers
     handleAddRecord,
     handleEditClick,
@@ -165,5 +193,7 @@ export const useDataGrid = (
     processRowUpdate,
     handleRowModesModelChange,
     handleSync,
+    handleConfirmDelete,
+    handleCancelDelete,
   };
 };

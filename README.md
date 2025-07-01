@@ -1,12 +1,19 @@
 # React Data Grid App with MUI DataGrid
 
-This project is a React application built with TypeScript that displays a data grid with inline editing capabilities. It utilizes React Query for data fetching and state management, and MUI DataGrid for full-featured CRUD operations.
+This project i│   ├── components
+│   │   ├── DataGrid.tsx              # Main container component
+│   │   ├── DataGridTable.tsx         # Grid table with columns & actions
+│   │   ├── DataGridToolbar.tsx       # Custom toolbar component  
+│   │   ├── ConfirmationDialog.tsx    # Delete confirmation dialog
+│   │   ├── EditModal.tsx             # Legacy modal component
+│   │   └── Notification.tsx          # Snackbar notification componentact application built with TypeScript that displays a data grid with inline editing capabilities. It utilizes React Query for data fetching and state management, and MUI DataGrid for full-featured CRUD operations.
 
 ## Features
 
 - **Full CRUD Operations**: Create, read, update, and delete data directly in the grid
 - **Inline Editing**: Edit data directly in the grid using MUI DataGrid's built-in editing features
 - **Row Management**: Add new rows with custom toolbar, edit existing rows with save/cancel actions
+- **Delete Confirmation**: Warning dialog before deleting rows to prevent accidental data loss
 - **Data Management**: TanStack Query v5 for efficient data fetching, caching, and mutations
 - **Modern UI**: Material-UI components with React 19 for a polished user experience
 - **TypeScript Support**: Full type safety throughout the application
@@ -26,9 +33,10 @@ This project is a React application built with TypeScript that displays a data g
 
 ## Key Components
 
-- **DataGridComponent**: Main container component that orchestrates the data grid
+- **DataGrid**: Main container component that orchestrates the data grid
 - **DataGridTable**: Pure component that renders the MUI DataGrid with columns and actions
 - **DataGridToolbar**: Custom toolbar component for adding new records
+- **ConfirmationDialog**: Reusable dialog component for delete confirmations
 - **Notification**: Reusable snackbar component for user feedback
 - **useDataGrid**: Custom hook containing all data grid business logic and state management
 - **useSnackbar**: Custom hook for managing notification state
@@ -119,7 +127,7 @@ react-grid-feature-flags
 - **Add New Rows**: Click the "Add Row" button in the custom toolbar to create new entries
 - **Edit Rows**: Double-click on any cell or use the edit button in the actions column to enter edit mode
 - **Save Changes**: Click the checkmark icon to save changes or the X icon to cancel
-- **Delete Rows**: Use the delete button in the actions column to remove rows
+- **Delete Rows**: Use the delete button in the actions column - a confirmation dialog will appear to prevent accidental deletions
 - **Data Persistence**: All changes are managed through TanStack Query with automatic cache updates
 
 ## Contributing

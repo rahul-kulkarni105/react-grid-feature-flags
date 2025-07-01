@@ -4,6 +4,7 @@ import { useDataGrid } from '../hooks/useDataGrid';
 import { useSnackbar } from '../hooks/useSnackbar';
 import { DataGridTable } from './DataGridTable';
 import { Notification } from './Notification';
+import { ConfirmationDialog } from './ConfirmationDialog';
 
 const DataGrid = () => {
   const { snackbar, showSnackbar, hideSnackbar } = useSnackbar();
@@ -13,6 +14,7 @@ const DataGrid = () => {
     error,
     rowModesModel,
     isLoading_mutations,
+    deleteConfirmation,
     handleAddRecord,
     handleEditClick,
     handleSaveClick,
@@ -21,6 +23,8 @@ const DataGrid = () => {
     processRowUpdate,
     handleRowModesModelChange,
     handleSync,
+    handleConfirmDelete,
+    handleCancelDelete,
   } = useDataGrid(showSnackbar);
 
   const handleRowEditStop: GridEventListener<'rowEditStop'> = (
@@ -65,6 +69,16 @@ const DataGrid = () => {
         message={snackbar.message}
         severity={snackbar.severity}
         onClose={hideSnackbar}
+      />
+      <ConfirmationDialog
+        open={deleteConfirmation.open}
+        title='Delete Feature Flag'
+        message={`Are you sure you want to delete "${deleteConfirmation.rowName}"? This action cannot be undone.`}
+        onConfirm={handleConfirmDelete}
+        onCancel={handleCancelDelete}
+        confirmText='Delete'
+        cancelText='Cancel'
+        severity='error'
       />
     </Box>
   );
