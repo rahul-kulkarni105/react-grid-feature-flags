@@ -1,8 +1,8 @@
-import React from 'react';
+import { type FC } from 'react';
 import { Snackbar, Alert } from '@mui/material';
 import { NotificationProps } from '../types';
 
-export const Notification: React.FC<NotificationProps> = ({
+export const Notification: FC<NotificationProps> = ({
   open,
   message,
   severity,

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { type FC, ChangeEvent, useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import { FormData, EditModalProps } from '../types';
 
-const EditModal: React.FC<EditModalProps> = ({
+const EditModal: FC<EditModalProps> = ({
   isOpen,
   onRequestClose,
   rowData,
@@ -14,7 +14,7 @@ const EditModal: React.FC<EditModalProps> = ({
     setFormData(rowData);
   }, [rowData]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     const { name, type, checked, value } = e.target;
     setFormData((prev: FormData) => ({
       ...prev,

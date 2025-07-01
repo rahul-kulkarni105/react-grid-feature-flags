@@ -1,13 +1,9 @@
-import React from 'react';
+import { type FC } from 'react';
 import {
   DataGrid,
   GridColDef,
-  GridRowId,
   GridActionsCellItem,
-  GridEventListener,
   GridRowModes,
-  GridRowModesModel,
-  GridRowModel,
 } from '@mui/x-data-grid';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/DeleteOutlined';
@@ -16,7 +12,7 @@ import CancelIcon from '@mui/icons-material/Close';
 import { RowData, DataGridTableProps } from '../types';
 import { DataGridToolbar } from './DataGridToolbar';
 
-export const DataGridTable: React.FC<DataGridTableProps> = ({
+export const DataGridTable: FC<DataGridTableProps> = ({
   rows,
   rowModesModel,
   loading,
