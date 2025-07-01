@@ -5,7 +5,7 @@ import { useSnackbar } from '../hooks/useSnackbar';
 import { DataGridTable } from './DataGridTable';
 import { Notification } from './Notification';
 
-const DataGridComponent = () => {
+const DataGrid = () => {
   const { snackbar, showSnackbar, hideSnackbar } = useSnackbar();
   const {
     rows,
@@ -70,4 +70,4 @@ const DataGridComponent = () => {
   );
 };
 
-export default DataGridComponent;
+export default DataGrid;

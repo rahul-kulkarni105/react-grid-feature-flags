@@ -4,7 +4,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { Container, Typography, CircularProgress, Box } from '@mui/material';
 
 // Dynamic import for DataGrid component to enable code splitting
-const DataGridComponent = lazy(() => import('./components/DataGrid'));
+const DataGrid = lazy(() => import('./components/DataGrid'));
 
 const theme = createTheme();
 
@@ -28,7 +28,7 @@ const App: FC = () => {
           Data Grid with Feature Flags
         </Typography>
         <Suspense fallback={<LoadingFallback />}>
-          <DataGridComponent />
+          <DataGrid />
         </Suspense>
       </Container>
     </ThemeProvider>
