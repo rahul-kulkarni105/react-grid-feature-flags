@@ -26,10 +26,23 @@ This project is a React application built with TypeScript that displays a data g
 
 ## Key Components
 
-- **DataGridComponent**: Main grid component with inline editing
-- **MUI DataGrid**: Provides row editing, pagination, sorting, and filtering
-- **React Query**: Handles data fetching, caching, and mutations
-- **Material-UI Theme**: Consistent styling and theming
+- **DataGridComponent**: Main container component that orchestrates the data grid
+- **DataGridTable**: Pure component that renders the MUI DataGrid with columns and actions
+- **DataGridToolbar**: Custom toolbar component for adding new records
+- **Notification**: Reusable snackbar component for user feedback
+- **useDataGrid**: Custom hook containing all data grid business logic and state management
+- **useSnackbar**: Custom hook for managing notification state
+- **Mock Data Service**: Centralized mock data with CRUD operations
+
+## Architecture
+
+The application follows a clean architecture pattern:
+
+- **Presentation Layer**: React components focused on UI rendering
+- **Business Logic Layer**: Custom hooks containing application logic
+- **Data Layer**: API services and mock data management
+- **Separation of Concerns**: Each component has a single responsibility
+- **Reusability**: Hooks and components are designed for reuse
 
 ## Project Structure
 
@@ -39,16 +52,21 @@ react-grid-feature-flags
 │   ├── App.tsx
 │   ├── main.tsx
 │   ├── components
-│   │   ├── DataGrid.tsx
-│   │   └── EditModal.tsx
+│   │   ├── DataGrid.tsx              # Main container component
+│   │   ├── DataGridTable.tsx         # Grid table with columns & actions
+│   │   ├── DataGridToolbar.tsx       # Custom toolbar component  
+│   │   ├── EditModal.tsx             # Legacy modal component
+│   │   └── Notification.tsx          # Snackbar notification component
 │   ├── hooks
-│   │   └── useDataApi.ts
+│   │   ├── useDataApi.ts             # Legacy data API hook
+│   │   ├── useDataGrid.ts            # Main data grid logic hook
+│   │   └── useSnackbar.ts            # Notification management hook
 │   ├── mocks
-│   │   └── mockData.ts
+│   │   └── mockData.ts               # Mock feature flag data
 │   ├── services
-│   │   └── api.ts
+│   │   └── api.ts                    # API service functions
 │   └── types
-│       └── index.ts
+│       └── index.ts                  # TypeScript type definitions
 ├── .prettierrc.json
 ├── .prettierignore
 ├── .gitignore
