@@ -1,14 +1,14 @@
-import React, { Suspense } from 'react';
+import { Suspense, lazy, type FC } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { Container, Typography, CircularProgress, Box } from '@mui/material';
 
 // Dynamic import for DataGrid component to enable code splitting
-const DataGridComponent = React.lazy(() => import('./components/DataGrid'));
+const DataGridComponent = lazy(() => import('./components/DataGrid'));
 
 const theme = createTheme();
 
-const LoadingFallback: React.FC = () => (
+const LoadingFallback: FC = () => (
   <Box
     display='flex'
     justifyContent='center'
@@ -19,7 +19,7 @@ const LoadingFallback: React.FC = () => (
   </Box>
 );
 
-const App: React.FC = () => {
+const App: FC = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
