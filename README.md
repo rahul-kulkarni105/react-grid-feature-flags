@@ -54,7 +54,7 @@ react-grid-feature-flags
 │   ├── components
 │   │   ├── DataGrid.tsx              # Main container component
 │   │   ├── DataGridTable.tsx         # Grid table with columns & actions
-│   │   ├── DataGridToolbar.tsx       # Custom toolbar component  
+│   │   ├── DataGridToolbar.tsx       # Custom toolbar component
 │   │   ├── EditModal.tsx             # Legacy modal component
 │   │   └── Notification.tsx          # Snackbar notification component
 │   ├── hooks

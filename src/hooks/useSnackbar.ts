@@ -1,10 +1,5 @@
 import { useState } from 'react';
-
-interface SnackbarState {
-  open: boolean;
-  message: string;
-  severity: 'success' | 'error';
-}
+import { SnackbarState } from '../types';
 
 export const useSnackbar = () => {
   const [snackbar, setSnackbar] = useState<SnackbarState>({

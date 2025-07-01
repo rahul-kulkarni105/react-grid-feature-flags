@@ -2,10 +2,7 @@ import React from 'react';
 import { GridToolbarContainer } from '@mui/x-data-grid';
 import { Button } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
-
-interface DataGridToolbarProps {
-  onAddRecord: () => void;
-}
+import { DataGridToolbarProps } from '../types';
 
 export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
   onAddRecord,

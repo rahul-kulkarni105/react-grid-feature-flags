@@ -13,23 +13,8 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/DeleteOutlined';
 import SaveIcon from '@mui/icons-material/Save';
 import CancelIcon from '@mui/icons-material/Close';
-import { RowData } from '../types';
+import { RowData, DataGridTableProps } from '../types';
 import { DataGridToolbar } from './DataGridToolbar';
-
-interface DataGridTableProps {
-  rows: RowData[];
-  rowModesModel: GridRowModesModel;
-  loading: boolean;
-  onAddRecord: () => void;
-  onRowModesModelChange: (newRowModesModel: GridRowModesModel) => void;
-  onRowEditStop: GridEventListener<'rowEditStop'>;
-  onProcessRowUpdate: (newRow: GridRowModel) => GridRowModel;
-  onProcessRowUpdateError: (error: Error) => void;
-  onEditClick: (id: GridRowId) => () => void;
-  onSaveClick: (id: GridRowId) => () => void;
-  onDeleteClick: (id: GridRowId) => () => void;
-  onCancelClick: (id: GridRowId) => () => void;
-}
 
 export const DataGridTable: React.FC<DataGridTableProps> = ({
   rows,

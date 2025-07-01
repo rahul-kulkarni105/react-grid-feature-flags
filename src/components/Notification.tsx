@@ -1,12 +1,6 @@
 import React from 'react';
 import { Snackbar, Alert } from '@mui/material';
-
-interface NotificationProps {
-  open: boolean;
-  message: string;
-  severity: 'success' | 'error';
-  onClose: () => void;
-}
+import { NotificationProps } from '../types';
 
 export const Notification: React.FC<NotificationProps> = ({
   open,

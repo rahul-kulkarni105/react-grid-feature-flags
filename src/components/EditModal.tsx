@@ -1,12 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
-
-interface EditModalProps {
-  isOpen: boolean;
-  onRequestClose: () => void;
-  rowData: any; // Replace 'any' with the appropriate type from your types file
-  onSave: (updatedRow: any) => void; // Replace 'any' with the appropriate type
-}
+import { FormData, EditModalProps } from '../types';
 
 const EditModal: React.FC<EditModalProps> = ({
   isOpen,
@@ -14,26 +8,26 @@ const EditModal: React.FC<EditModalProps> = ({
   rowData,
   onSave,
 }) => {
-  const [formData, setFormData] = useState(rowData);
+  const [formData, setFormData] = useState<FormData>(rowData);
 
   useEffect(() => {
     setFormData(rowData);
   }, [rowData]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, type, checked, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev: FormData) => ({
       ...prev,
       [name]: type === 'checkbox' ? checked : value,
     }));
   };
 
-  const handleSave = () => {
+  const handleSave = (): void => {
     onSave(formData);
     onRequestClose();
   };
 
-  const handleCancel = () => {
+  const handleCancel = (): void => {
     onRequestClose();
   };
 
