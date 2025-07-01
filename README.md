@@ -53,7 +53,7 @@ react-grid-feature-flags
 ├── index.html
 ├── package.json
 ├── tsconfig.json
-├── vite.config.js
+├── vite.config.ts
 └── README.md
 ```
 
