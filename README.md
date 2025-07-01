@@ -4,22 +4,25 @@ This project is a React application built with TypeScript that displays a data g
 
 ## Features
 
+- **Full CRUD Operations**: Create, read, update, and delete data directly in the grid
 - **Inline Editing**: Edit data directly in the grid using MUI DataGrid's built-in editing features
-- **Row-based Editing**: Click on a row to enter edit mode, make changes, and save/cancel
-- **Data Synchronization**: Sync data with the server to fetch the latest updates
-- **Modern UI**: Material-UI components for a polished user experience
+- **Row Management**: Add new rows with custom toolbar, edit existing rows with save/cancel actions
+- **Data Management**: TanStack Query v5 for efficient data fetching, caching, and mutations
+- **Modern UI**: Material-UI components with React 19 for a polished user experience
 - **TypeScript Support**: Full type safety throughout the application
+- **Code Splitting**: Dynamic imports and optimized bundle size
 - **Responsive Design**: Grid adapts to different screen sizes
+- **Mock Data**: Built-in mock data service to eliminate CORS issues
 
 ## Technologies Used
 
-- **React 18** - UI Framework
-- **TypeScript** - Type safety
-- **Vite 5** - Build tool and dev server
-- **React Query 3** - Data fetching and caching
-- **MUI DataGrid** - Advanced data grid with editing capabilities
-- **Material-UI** - UI component library
-- **Axios** - HTTP client
+- **React 19** - Latest UI Framework
+- **TypeScript 5.8.3** - Type safety
+- **Vite 6** - Modern build tool and dev server
+- **TanStack Query v5** - Data fetching and caching (formerly React Query)
+- **MUI DataGrid 7** - Advanced data grid with editing capabilities
+- **Material-UI 6** - UI component library
+- **Prettier** - Code formatting
 
 ## Key Components
 
@@ -44,11 +47,13 @@ react-grid-feature-flags
 │   │   └── api.ts
 │   └── types
 │       └── index.ts
-├── public
-│   └── index.html
+├── .prettierrc.json
+├── .prettierignore
+├── .gitignore
+├── index.html
 ├── package.json
 ├── tsconfig.json
-├── vite.config.ts
+├── vite.config.js
 └── README.md
 ```
 
@@ -69,21 +74,33 @@ react-grid-feature-flags
 
 3. **Run the application:**
 
-   ```
+   ```bash
    npm run dev
    ```
 
-4. **Open your browser:**
+4. **Build for production:**
+
+   ```bash
+   npm run build
+   ```
+
+5. **Format code:**
+
+   ```bash
+   npm run format
+   ```
+
+6. **Open your browser:**
    Navigate to `http://localhost:3000` to view the application.
 
 ## Usage
 
-- Load the data from the API when the application starts.
-- Click on a row in the data grid to open the edit modal.
-- Make changes to the row values and click "Save" to apply changes.
-- Use the "Cancel" button to discard changes.
-- Click the "Update" button in the grid to send all updated rows back to the server.
-- Click the "Sync" button to fetch the latest data from the server.
+- **View Data**: The application loads mock data automatically when it starts
+- **Add New Rows**: Click the "Add Row" button in the custom toolbar to create new entries
+- **Edit Rows**: Double-click on any cell or use the edit button in the actions column to enter edit mode
+- **Save Changes**: Click the checkmark icon to save changes or the X icon to cancel
+- **Delete Rows**: Use the delete button in the actions column to remove rows
+- **Data Persistence**: All changes are managed through TanStack Query with automatic cache updates
 
 ## Contributing
 
