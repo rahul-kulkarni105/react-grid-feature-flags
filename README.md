@@ -1,12 +1,12 @@
 # React Data Grid App with MUI DataGrid
 
-This project i│   ├── components
-│   │   ├── DataGrid.tsx              # Main container component
-│   │   ├── DataGridTable.tsx         # Grid table with columns & actions
-│   │   ├── DataGridToolbar.tsx       # Custom toolbar component  
-│   │   ├── ConfirmationDialog.tsx    # Delete confirmation dialog
-│   │   ├── EditModal.tsx             # Legacy modal component
-│   │   └── Notification.tsx          # Snackbar notification componentact application built with TypeScript that displays a data grid with inline editing capabilities. It utilizes React Query for data fetching and state management, and MUI DataGrid for full-featured CRUD operations.
+This project i│ ├── components
+│ │ ├── DataGrid.tsx # Main container component
+│ │ ├── DataGridTable.tsx # Grid table with columns & actions
+│ │ ├── DataGridToolbar.tsx # Custom toolbar component  
+│ │ ├── ConfirmationDialog.tsx # Delete confirmation dialog
+│ │ ├── EditModal.tsx # Legacy modal component
+│ │ └── Notification.tsx # Snackbar notification componentact application built with TypeScript that displays a data grid with inline editing capabilities. It utilizes React Query for data fetching and state management, and MUI DataGrid for full-featured CRUD operations.
 
 ## Features
 
